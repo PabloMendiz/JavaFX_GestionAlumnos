@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<SplitPane dividerPositions="0.4020100502512563" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.ControladorVista2">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="174.0" prefWidth="598.0">
+         <children>
+            <Label fx:id="nameLbl" layoutX="264.0" layoutY="40.0" text="Nombre" />
+            <Label fx:id="lastNameLbl" layoutX="264.0" layoutY="85.0" text="Apellido" />
+            <Label fx:id="mediaLbl" layoutX="264.0" layoutY="136.0" text="Media" />
+            <TextField fx:id="txtName" layoutX="363.0" layoutY="35.0" />
+            <TextField fx:id="txtLastName" layoutX="363.0" layoutY="83.0" />
+            <TextField fx:id="txtMedia" editable="false" layoutX="363.0" layoutY="131.0" />
+            <StackPane layoutX="28.0" layoutY="21.0" prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </StackPane>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <Label layoutX="35.0" layoutY="116.0" text="BBDD" />
+            <Label layoutX="35.0" layoutY="198.0" text="PROG" />
+            <Label layoutX="35.0" layoutY="48.0" text="LMSGI" />
+            <Label layoutX="228.0" text="Calificaciones">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtLM" layoutX="112.0" layoutY="43.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtBBDD" layoutX="112.0" layoutY="111.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtPROG" layoutX="112.0" layoutY="193.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtFOLA" editable="false" layoutX="448.0" layoutY="197.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtENDS" layoutX="448.0" layoutY="115.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtSSII" layoutX="448.0" layoutY="47.0" prefHeight="31.0" prefWidth="96.0" />
+            <Label layoutX="364.0" layoutY="52.0" text="SSII" />
+            <Label layoutX="364.0" layoutY="120.0" text="ENDS" />
+            <Button layoutX="229.0" layoutY="249.0" mnemonicParsing="false" text="Ok" />
+            <Button fx:id="btnCancel" layoutX="331.0" layoutY="249.0" mnemonicParsing="false" onAction="#actionCancel" text="Cancel" />
+            <Separator layoutX="297.0" layoutY="37.0" orientation="VERTICAL" prefHeight="200.0" />
+            <CheckBox fx:id="folaCheckBox" layoutX="335.0" layoutY="198.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="72.0" text="FOLA" />
+         </children></AnchorPane>
+  </items>
+</SplitPane>
