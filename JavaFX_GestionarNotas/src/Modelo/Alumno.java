@@ -6,15 +6,17 @@ public class Alumno {
 		private ControladorVista1 controlVista1;
 		private String name;
 		private String lastName;
-		private String media;
+		private double media;
+		private String img;
 
 		public Alumno() {
 		}
 
-		public Alumno(String name, String lastName, String media) {
+		public Alumno(String img, String name, String lastName, double media) {
+			this.setImg(img);
 			this.name = name;
 			this.lastName = lastName;
-			this.media = media;
+			this.setMedia(media);
 
 		}
 
@@ -55,11 +57,19 @@ public class Alumno {
 			this.controlVista1 = conVis;
 		}
 
-		public String getMedia() {
+		public String getImg() {
+			return img;
+		}
+
+		public void setImg(String img) {
+			this.img = img;
+		}
+
+		public double getMedia() {
 			return media;
 		}
 
-		public void setMedia(String media) {
+		public void setMedia(double media) {
 			this.media = media;
 		}
 

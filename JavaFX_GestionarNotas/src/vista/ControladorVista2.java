@@ -1,23 +1,37 @@
 package vista;
 
+
 import Modelo.Alumno;
 import application.Controller;
 import application.Main;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 
 public class ControladorVista2 extends Controller{
 	
 	//ATRIBUTOS
-	
-	
+
+	private int indice;
+	protected double fol = 0;
+	protected double bbdd = 0;
+	protected double ssii = 0;
+	protected double prog = 0;
+	protected double ends = 0;
+	protected double lmsg = 0;
+
 	private Main mainApp;
 	private Alumno alumno;
 	
+	@FXML
+	private Alert alerta = new Alert(AlertType.ERROR);
 	@FXML
 	private ImageView img;
 	
@@ -67,12 +81,100 @@ public class ControladorVista2 extends Controller{
 	
 	//METODOS
 	
+	
+	public void initialize() {
+
+	}
+
+	public void setPerson(String image, String name, String apellido, Double media, int index) {
+
+		img.setImage(new Image(image));
+		txtName.setText(name);
+		txtLastName.setText(apellido);
+		txtMedia.setText(Double.toString(media));
+		indice = index;
+
+	}
+	
+	public void actionOK() {
+		if (txtName.getText().equals("") || txtLastName.getText().equals("") || txtLM.getText().equals("") || txtBBDD.getText().equals("") || 
+			txtPROG.getText().equals("") || txtSSII.getText().equals("") || txtENDS.getText().equals("")) {  
+			
+			alerta.setTitle("Campos incompletos");
+			alerta.setContentText("Porfavor rellena todos los campos");
+			alerta.showAndWait();
+			
+		} else {
+			if (indice != -1) {
+				getAlumnodata().set(indice, new Alumno("", txtName.getText(), txtLastName.getText(), calcularNotaMEdia()));
+			
+			} else {
+				getAlumnodata().add(indice, new Alumno("", txtName.getText(), txtLastName.getText(), calcularNotaMEdia()));
+			}
+			cambioVista(btnOk, "../vista/vista1.fxml");
+		}
+	}
+	
+	public void hacerFOLEditable() {
+		
+		if (folaCheckBox.isSelected()) 
+			txtFOLA.setDisable(false);
+		else
+			txtFOLA.setDisable(true);
+			
+		 }
+	
+	
+	//Calculo nota media
+	public Double calcularNotaMEdia() {
+		if (folaCheckBox.isSelected()) {
+			double array[] = { Double.parseDouble(txtFOLA.getText()), Double.parseDouble(txtSSII.getText()),
+					Double.parseDouble(txtPROG.getText()), Double.parseDouble(txtENDS.getText()),
+					Double.parseDouble(txtLM.getText()), Double.parseDouble(txtBBDD.getText()) };
+			double media = 0.0;
+			if (Double.parseDouble(txtFOLA.getText()) > 10 || Double.parseDouble(txtFOLA.getText()) < 0
+					|| Double.parseDouble(txtSSII.getText()) < 0 || Double.parseDouble(txtPROG.getText()) < 0
+					|| Double.parseDouble(txtENDS.getText()) < 0 || Double.parseDouble(txtLM.getText()) < 0
+					|| Double.parseDouble(txtBBDD.getText()) < 0 || Double.parseDouble(txtSSII.getText()) > 10
+					|| Double.parseDouble(txtPROG.getText()) > 10 || Double.parseDouble(txtENDS.getText()) > 10
+					|| Double.parseDouble(txtLM.getText()) > 10
+					|| Double.parseDouble(txtBBDD.getText()) > 10) {
+				return (double) -1;
+			} else {
+				for (int i = 0; i < array.length; i++) {
+					media = media + array[i];
+				}
+				media = media / array.length;
+				return ((double) Math.round(media * 10d) / 10d);
+			}
+		} else {
+			double array[] = {Double.parseDouble(txtSSII.getText()),
+					Double.parseDouble(txtPROG.getText()), Double.parseDouble(txtENDS.getText()),
+					Double.parseDouble(txtLM.getText()), Double.parseDouble(txtBBDD.getText()) };
+			double media = 0.0;
+			if ( Double.parseDouble(txtSSII.getText()) < 0 || Double.parseDouble(txtPROG.getText()) < 0
+					|| Double.parseDouble(txtENDS.getText()) < 0 || Double.parseDouble(txtLM.getText()) < 0
+					|| Double.parseDouble(txtBBDD.getText()) < 0 || Double.parseDouble(txtSSII.getText()) > 10
+					|| Double.parseDouble(txtPROG.getText()) > 10 || Double.parseDouble(txtENDS.getText()) > 10
+					|| Double.parseDouble(txtLM.getText()) > 10
+					|| Double.parseDouble(txtBBDD.getText()) > 10) {
+				return (double) -1;
+			} else {
+				for (int i = 0; i < array.length; i++) {
+					media = media + array[i];
+				}
+				media = media / array.length;
+				return ((double) Math.round(media * 10d) / 10d);
+			}
+		}
+		
+	}
+	
 	//metodo que lleva a la pantalla principal al pulsar cancel
 	@FXML
 	private void actionCancel() {
 		cambioVista(btnCancel, "../vista/vista1.fxml");
 	}
-
 	/**
 	 * @return the mainApp
 	 */
@@ -398,3 +500,4 @@ public class ControladorVista2 extends Controller{
 	//GETTERS Y SETTERS
 
 }
+

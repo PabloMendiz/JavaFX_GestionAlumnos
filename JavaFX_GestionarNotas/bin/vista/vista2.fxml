@@ -7,44 +7,42 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<SplitPane dividerPositions="0.4020100502512563" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.ControladorVista2">
+<SplitPane dividerPositions="0.30522088353413657" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.ControladorVista2">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="174.0" prefWidth="598.0">
+    <AnchorPane fx:id="anchor3" minHeight="0.0" minWidth="0.0" prefHeight="174.0" prefWidth="598.0" stylesheets="@../application/application.css">
          <children>
             <Label fx:id="nameLbl" layoutX="264.0" layoutY="40.0" text="Nombre" />
             <Label fx:id="lastNameLbl" layoutX="264.0" layoutY="85.0" text="Apellido" />
-            <Label fx:id="mediaLbl" layoutX="264.0" layoutY="136.0" text="Media" />
-            <TextField fx:id="txtName" layoutX="363.0" layoutY="35.0" />
-            <TextField fx:id="txtLastName" layoutX="363.0" layoutY="83.0" />
-            <TextField fx:id="txtMedia" editable="false" layoutX="363.0" layoutY="131.0" />
-            <StackPane layoutX="28.0" layoutY="21.0" prefHeight="150.0" prefWidth="200.0">
+            <TextField fx:id="txtName" layoutX="363.0" layoutY="35.0" stylesheets="@../../bin/application/application.css" />
+            <TextField fx:id="txtLastName" layoutX="363.0" layoutY="83.0" stylesheets="@../../bin/application/application.css" />
+            <StackPane layoutX="65.0" layoutY="31.0" prefHeight="104.0" prefWidth="120.0">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="100.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </StackPane>
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+    <AnchorPane fx:id="anchor2" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" stylesheets="@../application/application.css">
          <children>
-            <Label layoutX="35.0" layoutY="116.0" text="BBDD" />
-            <Label layoutX="35.0" layoutY="198.0" text="PROG" />
-            <Label layoutX="35.0" layoutY="48.0" text="LMSGI" />
-            <Label layoutX="228.0" text="Calificaciones">
+            <Label layoutX="29.0" layoutY="147.0" text="BBDD" />
+            <Label layoutX="29.0" layoutY="229.0" text="PROG" />
+            <Label layoutX="29.0" layoutY="79.0" text="LMSGI" />
+            <Label layoutX="226.0" layoutY="14.0" text="Calificaciones">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="txtLM" layoutX="112.0" layoutY="43.0" prefHeight="31.0" prefWidth="96.0" />
-            <TextField fx:id="txtBBDD" layoutX="112.0" layoutY="111.0" prefHeight="31.0" prefWidth="96.0" />
-            <TextField fx:id="txtPROG" layoutX="112.0" layoutY="193.0" prefHeight="31.0" prefWidth="96.0" />
-            <TextField fx:id="txtFOLA" editable="false" layoutX="448.0" layoutY="197.0" prefHeight="31.0" prefWidth="96.0" />
-            <TextField fx:id="txtENDS" layoutX="448.0" layoutY="115.0" prefHeight="31.0" prefWidth="96.0" />
-            <TextField fx:id="txtSSII" layoutX="448.0" layoutY="47.0" prefHeight="31.0" prefWidth="96.0" />
-            <Label layoutX="364.0" layoutY="52.0" text="SSII" />
-            <Label layoutX="364.0" layoutY="120.0" text="ENDS" />
-            <Button layoutX="229.0" layoutY="249.0" mnemonicParsing="false" text="Ok" />
-            <Button fx:id="btnCancel" layoutX="331.0" layoutY="249.0" mnemonicParsing="false" onAction="#actionCancel" text="Cancel" />
-            <Separator layoutX="297.0" layoutY="37.0" orientation="VERTICAL" prefHeight="200.0" />
-            <CheckBox fx:id="folaCheckBox" layoutX="335.0" layoutY="198.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="72.0" text="FOLA" />
+            <TextField fx:id="txtLM" layoutX="106.0" layoutY="74.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtBBDD" layoutX="106.0" layoutY="142.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtPROG" layoutX="106.0" layoutY="224.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtFOLA" disable="true" layoutX="442.0" layoutY="228.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtENDS" layoutX="442.0" layoutY="146.0" prefHeight="31.0" prefWidth="96.0" />
+            <TextField fx:id="txtSSII" layoutX="442.0" layoutY="78.0" prefHeight="31.0" prefWidth="96.0" />
+            <Label layoutX="358.0" layoutY="83.0" text="SSII" />
+            <Label layoutX="358.0" layoutY="151.0" text="ENDS" />
+            <Button fx:id="btnOk" layoutX="216.0" layoutY="280.0" minWidth="64.0" mnemonicParsing="false" onAction="#actionOK" stylesheets="@../../bin/application/application.css" text="Ok" />
+            <Button fx:id="btnCancel" layoutX="313.0" layoutY="280.0" mnemonicParsing="false" onAction="#actionCancel" stylesheets="@../../bin/application/application.css" text="Cancel" />
+            <Separator layoutX="296.0" layoutY="62.0" orientation="VERTICAL" prefHeight="200.0" />
+            <CheckBox fx:id="folaCheckBox" layoutX="329.0" layoutY="229.0" mnemonicParsing="false" onAction="#hacerFOLEditable" prefHeight="21.0" prefWidth="72.0" text="FOLA" />
          </children></AnchorPane>
   </items>
 </SplitPane>
